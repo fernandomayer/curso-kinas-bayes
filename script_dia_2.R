@@ -46,6 +46,11 @@ plot(mu, 1/sqrt(tau)) # mu, desvio padrao
 quantile(mu, c(.025, .975))
 abline(v = quantile(mu, c(.025, .975)), lty = 2, col = 2)
 
+## embora se conheça a posterior, que eh uma t-student nao-central, a
+## simulacao eh utilizada aqui porque nao ha uma funcao no R para
+## calcular essa t. Mas poderia simular uma t-studemt padrao e
+## transformar para chegar em mu
+
 ## Exercício usando uma priori vaga
 alpha0 <- beta0 <- 0.001
 lambda0 = 0.0001
@@ -53,8 +58,9 @@ mu0 = 0
 n <- 20
 xbarra <- 30
 
+# media mu1
 (lambda0*mu0 + n*xbarra)/(lambda0+n)
-
+# e assim por diante...
 # os parametros ficam
 m <- 1000
 mu1 <- 30
