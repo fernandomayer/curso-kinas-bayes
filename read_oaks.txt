@@ -1,0 +1,7 @@
+model{
+for(i in 1:10){
+y[i] ~ dpois(mu)
+}
+tau <- 1/(1.4*1.4)
+mu <- dlnorm(0.7, tau)
+}

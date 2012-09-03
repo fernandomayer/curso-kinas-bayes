@@ -1,0 +1,10 @@
+model{
+for(i in 1:n){
+m[i] <- b0 + b1*x[i]
+y[i] ~ dnorm(m[i], tau)
+}
+b0 ~ dnorm(0, 1.0E-6)I(-50,50) # o I coloca uma restricao nos params
+b1 ~ dnorm(0, 1.0E-6)I(-50,50)
+tau ~ dgamma(0.01, 0.01)
+sigma2 <- 1/tau
+}
